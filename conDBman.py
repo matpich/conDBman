@@ -1,13 +1,9 @@
 import sqlite3
 import os.path
+import helperDBman
 from prettytable import PrettyTable, from_db_cursor
 
-def tryToInt(string_or_int):
-    try:
-        int(string_or_int)
-        return int(string_or_int)
-    except:
-        return string_or_int
+
 
 class Database():
     def __init__(self,new_db_name, table_name = "clients"):
@@ -39,6 +35,9 @@ class Database():
     def clearTable(self):
         self.cur.execute('DELETE FROM %s' % self.table_name)
 
+    def deleteRow(self, id_number):
+        self.cur.execute('DELETE FROM '+self.table_name+' WHERE id='+str(id_number))
+
     #this method is looking for employee in database using id or name. If there is to many matches it asks user to type an id. If only one row is find in DB it returns it as a tuple which will be used to define "Worker" class object.
     def searchValue(self,condition):
         if type(condition).__name__ == 'str':
@@ -60,7 +59,7 @@ class Database():
             print('To many matches, try to find by id.\nPress any key to continue.')
             input()
         else:
-            return row_info
+            return None if row_info == () else row_info
 
     def saveQuit(self):
         self.db.commit()
@@ -80,7 +79,7 @@ class Database():
 def main():
     pass
 ##    dataB = Database("a")
-##    dataB.searchValue(tryToInt(input()))
+##    dataB.searchValue(helperDBman.int_or_str(input()))
 ######    dataB.updateRecord(Worker("Jim Beam", "No one", 4356))
 ##    dataB.addRecord(Worker((18,"Karol", "Ogarniacz", 10000)))
 ##    #dataB.readAllRecords()

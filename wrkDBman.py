@@ -1,7 +1,7 @@
 from prettytable import PrettyTable
-import os
+import os, msvcrt
+import helperDBman
 
-clear = lambda: os.system('cls')
 
 class Worker():
     def __init__(self, worker_tuple,  worker_id = None):
@@ -16,24 +16,27 @@ class Worker():
 
     def edit(self):
         while(True):
-            clear()
+            helperDBman.clear()
             self.__str__()
-            print('Which position you want to change? (1 - Name | 2 - Position | 3 - Salary | 0 - Quit Editor')
-            choose = int(input())
+            print('Which position you want to change? \n(1 - Name | 2 - Position | 3 - Salary | 0 - Quit Editor')
+            #choose = int(input())
+            choose = int(msvcrt.getwch())
             if choose == 0:
                 break
             elif choose == 1:
-                clear()
+                helperDBman.clear()
                 self.__str__()
                 self.name = (input("Type new name: ").upper())
             elif choose == 2:
-                clear()
+                helperDBman.clear()
                 self.__str__()
                 self.position = (input("Type new position: ").upper())
             elif choose == 3:
-                clear()
+                helperDBman.clear()
                 self.__str__()
-                self.salary = (int(input("Type new salary: ")))
+                self.salary = (helperDBman.tryToInt(input("Type new salary: ")))
+            else:
+                helperDBman.displayInfo('No such value, try again.')
 
 
     @property
