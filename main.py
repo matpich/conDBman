@@ -1,4 +1,4 @@
-from conDBman import Database as DB
+from conDBman import Database as DB, tryToInt
 import msvcrt, os, time, wrkDBman
 
 x =os.path.isfile(os.getcwd()+'\\test_db.db')
@@ -6,6 +6,13 @@ print(x)
 
 clear = lambda: os.system('cls')
 
+def displayInfo(info):
+    clear()
+    print(info)
+    time.sleep(1)
+
+def areYouSure(condition):
+    return True if condition.lower() == 'yes' else False
 
 while(True):
     clear()
@@ -47,25 +54,36 @@ NAME: ''')
             clear()
             dataB.readAllRecords()
             print('Press any key to continue')
-            msvcrt.getwch()
+            input()
+            #msvcrt.getwch()
         elif(menu_choice=='2'):
             clear()
+            dataB.addRecord(wrkDBman.workerCreator())
+            displayInfo("Row added.")
 
-            dataB.addRecord(wrkDBman.Worker(("Jim Beam", "No one", 4356)))
-            #clear()
-            print('Row added.')
-            time.sleep(1)
         elif(menu_choice=='3'):
-            pass
+            clear()
+            row_worker_info = dataB.searchValue(tryToInt(input('Type employee name or row id: ')))
+            employee = wrkDBman.Worker(row_worker_info[1:], row_worker_info[0])
+            employee.edit()
+
         elif(menu_choice=='4'):
             pass
         elif(menu_choice=='5'):
-            pass
+            if areYouSure(input("CLEAR TABLE: Type 'YES' if you want to proceed and press ENTER. Type anything else to cancel")):
+                dataB.clearTable()
+                displayInfo('Table cleared.')
         elif(menu_choice=='6'):
-            pass
+            if areYouSure(input("DISCARD CHANGES: Type 'YES' if you want to proceed and press ENTER. Type anything else to cancel.")):
+                dataB.discardChanges();
+                displayInfo('Discarding successful.')
+            else:
+                displayInfo("Canceled.")
         elif(menu_choice=='7'):
-            pass
+            dataB.saveQuit()
+            break
         elif(menu_choice=='8'):
+            dataB.discardQuit()
             break
         else:
             clear()
