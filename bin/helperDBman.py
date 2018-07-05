@@ -6,6 +6,13 @@ def displayInfo(info):
     clear()
     print(info)
     time.sleep(1)
+    clear()
+
+
+def displayTable(rows):
+    print("ID | NAME | POSITION | SALARY")
+    for row in rows:
+        print(str(row[0]) + ' | ' + row[1] + ' | '+ row[2] + ' | '+ str(row[3]))
 
 def int_or_str(string_or_int):
     try:
