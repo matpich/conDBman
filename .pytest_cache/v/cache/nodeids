@@ -1,0 +1,15 @@
+[
+  "tests/test_helperDBman.py::test_are_you_sure_YES",
+  "tests/test_helperDBman.py::test_are_you_sure_NO",
+  "tests/test_helperDBman.py::test_try_to_int[5001]",
+  "tests/test_helperDBman.py::test_try_to_int[5]",
+  "tests/test_helperDBman.py::test_try_to_int[34]",
+  "tests/test_helperDBman.py::test_try_to_int[500]",
+  "tests/test_helperDBman.py::test_displayTable[John-President-9000-1-ID | NAME | POSITION | SALARY\\n1 | JOHN | PRESIDENT | 9000\\n]",
+  "tests/test_helperDBman.py::test_displayTable[Jim-NoOne-4500-2-ID | NAME | POSITION | SALARY\\n2 | JIM | NOONE | 4500\\n]",
+  "tests/test_helperDBman.py::test_displayTable[James-foo-0-3-ID | NAME | POSITION | SALARY\\n3 | JAMES | FOO | 0\\n]",
+  "tests/test_helperDBman.py::test_displayInfo[foo]",
+  "tests/test_helperDBman.py::test_displayInfo[bar]",
+  "tests/test_helperDBman.py::test_displayInfo[hello]",
+  "tests/test_helperDBman.py::test_displayInfo[world]"
+]

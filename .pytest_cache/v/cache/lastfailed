@@ -1,0 +1,15 @@
+{
+  "tests/test_helperDBman.py::test_are_you_sure_NO": true,
+  "tests/test_helperDBman.py::test_are_you_sure_YES": true,
+  "tests/test_helperDBman.py::test_displayTable": true,
+  "tests/test_helperDBman.py::test_inp": true,
+  "tests/test_helperDBman.py::test_try_to_int[34]": true,
+  "tests/test_helperDBman.py::test_try_to_int[5001]": true,
+  "tests/test_helperDBman.py::test_try_to_int[500]": true,
+  "tests/test_helperDBman.py::test_try_to_int[501]": true,
+  "tests/test_helperDBman.py::test_try_to_int[5]": true,
+  "tests/test_helperDBman.py::test_try_to_int[699]": true,
+  "tests/test_helperDBman.py::test_try_to_int[700]": true,
+  "tests/test_helperDBman.py::test_try_to_int[741]": true,
+  "tests/test_helperDBman.py::test_try_to_int[742]": true
+}

@@ -2,10 +2,10 @@ import os, time
 
 clear = lambda: os.system('cls')
 
-def displayInfo(info):
+def displayInfo(info, sleep_time=1):
     clear()
     print(info)
-    time.sleep(1)
+    time.sleep(sleep_time)
     clear()
 
 
@@ -13,13 +13,6 @@ def displayTable(rows):
     print("ID | NAME | POSITION | SALARY")
     for row in rows:
         print(str(row[0]) + ' | ' + row[1] + ' | '+ row[2] + ' | '+ str(row[3]))
-
-def int_or_str(string_or_int):
-    try:
-        int(string_or_int)
-        return int(string_or_int)
-    except:
-        return string_or_int
 
 
 def tryToInt(string_or_int):

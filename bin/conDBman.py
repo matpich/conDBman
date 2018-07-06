@@ -1,13 +1,9 @@
 import sqlite3
-import os.path
 import helperDBman
-from prettytable import PrettyTable, from_db_cursor
-
-
 
 class Database():
     def __init__(self,new_db_name, table_name = "clients"):
-        self.db = sqlite3.connect('%s.db' % new_db_name)
+        self.db = sqlite3.connect('{}.db'.format(new_db_name))
         self.cur = self.db.cursor()
         self.table_name = table_name
 
@@ -68,22 +64,3 @@ class Database():
     def discardQuit(self):
         self.db.rollback()
         self.db.close()
-
-
-
-
-
-def main():
-    pass
-##    dataB = Database("a")
-##    dataB.searchValue(helperDBman.int_or_str(input()))
-######    dataB.updateRecord(Worker("Jim Beam", "No one", 4356))
-##    dataB.addRecord(Worker((18,"Karol", "Ogarniacz", 10000)))
-##    #dataB.readAllRecords()
-####    dataB.clearTable()
-####    input()
-####    dataB.stopDB()
-
-
-main()
-

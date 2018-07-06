@@ -1,6 +1,9 @@
 import helperDBman
 
 class Menu():
+
+    sure_info ="Type 'YES' if you want to proceed and press ENTER. \nType anything else to cancel."
+
     def start_M():
         helperDBman.clear()
         print('''
